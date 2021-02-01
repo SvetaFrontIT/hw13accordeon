@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('subset-Lato-Regular.eot');
+    src: url('subset-Lato-Regular.eot?#iefix') format('embedded-opentype'),
+        url('subset-Lato-Regular.woff2') format('woff2'),
+        url('subset-Lato-Regular.woff') format('woff'),
+        url('subset-Lato-Regular.ttf') format('truetype'),
+        url('subset-Lato-Regular.svg#Lato-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+* {
+    box-sizing: border-box;
+}
+.list {
+    margin: 50px;
+}
+.block {
+    max-width: 500px;
+    border-radius: 7px;
+    font-family: 'Lato';
+    background-color: #87CEEB;
+    color: #231E1E;
+}
+.title {
+    text-align: center;
+    border-bottom: 1px solid aqua;
+    font-size: large;
+    padding: 10px;
+    transition: 0.5s;
+}
+.title:hover {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background-color: #4682B4;
+}
+.text {
+    display: block;
+    margin: 10px;
+}
+.body {
+    max-height: 0;
+    overflow: hidden;
+    border-bottom: 1px solid aqua;;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    transition: max-height 0.3s ease-out;
+}
