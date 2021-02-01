@@ -6,7 +6,6 @@ class Accordeon {
     setHeight() {
         const titles = this.container.querySelectorAll('.title');
         for (let i = 0; i < titles.length; i++) {
-            
             titles[i].addEventListener("click", (event) => {
                 titles.forEach(title => {
                     if(title != event.target){
