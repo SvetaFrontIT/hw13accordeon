@@ -18,9 +18,7 @@ class Accordeon {
     this.container.addEventListener("click", (event) => {
       if (event.target.classList.contains("title")) {
         const bodyId = event.target.nextElementSibling.dataset.id;
-        const currentBody = this.container.querySelector(
-          `.body[data-id="${bodyId}"]`
-        );
+        const currentBody = this.container.querySelector(`.body[data-id="${bodyId}"]`);
         currentBody.classList.toggle("active");
         this.hideBlock(currentBody);
       }
