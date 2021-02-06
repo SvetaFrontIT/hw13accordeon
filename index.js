@@ -1,7 +1,7 @@
 class Accordeon {
   constructor(container) {
     this.container = container;
-    this.blocks = [];
+    this.bodys = [];
     this.init();
     this.createEventListener();
     this.hideBlock();
@@ -27,12 +27,11 @@ class Accordeon {
     });
   }
   hideBlock(currentBody) {
-    const bodys = this.container.querySelectorAll(".body");
-    for (let i = 0; i < bodys.length; i++) {
-      if (bodys[i] === currentBody) {
+    for (let i = 0; i < this.bodys.length; i++) {
+      if (this.bodys[i] === currentBody) {
         continue;
       }
-      bodys[i].classList.remove("active");
+      this.bodys[i].classList.remove("active");
     }
   }
 }
