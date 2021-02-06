@@ -1,26 +1,38 @@
 class Accordeon {
   constructor(container) {
     this.container = container;
-    this.setHeight();
+    this.blocks = [];
+    this.init();
+    this.createEventListener();
+    this.hideBlock();
   }
-  setHeight() {
-    const titles = this.container.querySelectorAll(".title");
-    for (let i = 0; i < titles.length; i++) {
-      titles[i].addEventListener("click", (event) => {
-        titles.forEach((title) => {
-          if (title != event.target) {
-            title.classList.remove("active");
-            title.nextElementSibling.style.maxHeight = null;
-          }
-        });
-        event.target.classList.toggle("active");
-        const body = titles[i].nextElementSibling;
-        if (body.style.maxHeight) {
-          body.style.maxHeight = null;
-        } else {
-          body.style.maxHeight = body.scrollHeight + "px";
-        }
-      });
+  init() {
+    const bodys = this.container.querySelectorAll(".body");
+    for (let i = 0; i < bodys.length; i++) {
+      bodys[i].dataset.id = i;
+    }
+    this.currentBodyId = 0;
+    this.bodys = bodys;
+  }
+  createEventListener() {
+    this.container.addEventListener("click", (event) => {
+      if (event.target.classList.contains("title")) {
+        const bodyId = event.target.nextElementSibling.dataset.id;
+        const currentBody = this.container.querySelector(
+          `.body[data-id="${bodyId}"]`
+        );
+        currentBody.classList.toggle("active");
+        this.hideBlock(currentBody);
+      }
+    });
+  }
+  hideBlock(currentBody) {
+    const bodys = this.container.querySelectorAll(".body");
+    for (let i = 0; i < bodys.length; i++) {
+      if (bodys[i] === currentBody) {
+        continue;
+      }
+      bodys[i].classList.remove("active");
     }
   }
 }
